@@ -1,0 +1,13 @@
+.navbtn{
+    text-transform: capitalize;
+    /* background-color: #39393b; */
+    height: 32px;
+    border-radius: 6px;
+    padding: 4px;
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+.menubtntext{
+    font-weight: 500;
+    color: #ffffffeb;
+}

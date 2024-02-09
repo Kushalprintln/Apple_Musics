@@ -1,0 +1,6 @@
+.main{
+    position: relative;
+    top: 44px;
+    left: 260px;
+    width: calc(100% - 260px);
+}
