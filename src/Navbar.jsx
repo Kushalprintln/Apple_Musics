@@ -17,13 +17,13 @@ export default function Navbar(){
                 <input type="text" placeholder="Search"/>
             </div>
             <div className={styles.menu}>
-                <Navbtn text='listen now'>
+                <Navbtn text='listen now' linkto='/'>
                     <PlayCircleOutlineOutlinedIcon sx={{ color: '#fa586a' }}/>
                 </Navbtn>
-                <Navbtn text='browse'>
+                <Navbtn text='browse' linkto='browse'>
                     <WindowOutlinedIcon sx={{ color: '#fa586a' }}/>
                 </Navbtn>
-                <Navbtn text='radio'>
+                <Navbtn text='radio' linkto='radio'>
                     <GraphicEqRoundedIcon sx={{ color: '#fa586a' }}/>
                 </Navbtn>
             </div>

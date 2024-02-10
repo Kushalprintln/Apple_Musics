@@ -1,6 +1,12 @@
 .main{
     position: relative;
-    top: 44px;
+    top: 54px;
     left: 260px;
     width: calc(100% - 260px);
+}
+@media screen and (max-width: 875px) {
+    .main{
+        left: 0;
+        width: 100%;
+    }
 }

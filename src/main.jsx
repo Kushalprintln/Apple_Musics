@@ -4,12 +4,16 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import Home from './Home.jsx'
+import Browse from './Browse.jsx'
+import Radio from './Radio.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
   <Routes>
     <Route path='/' element={<App />}>
       <Route index element={<Home/>}/>
+      <Route path='browse' element={<Browse/>}/>
+      <Route path='radio' element={<Radio/>}/>
     </Route>
   </Routes>
   </BrowserRouter>

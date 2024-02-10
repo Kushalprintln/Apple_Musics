@@ -1,14 +1,32 @@
 import React from "react";
-import styles from './Navbtn.module.css';
 import { NavLink } from "react-router-dom";
-export default function Navbtn({children,text}){
+export default function Navbtn({ children, text, linkto}) {
     return (
-        <div className={styles.navbtn}>
-            <NavLink style={{color:'inherit', font:'inherit',textDecoration:'inherit', display:'flex',gap:'8px'}}>
-                {children}
-                <span className={styles.menubtntext}>{text}</span>
-            </NavLink>
-        </div>
-    )
+        <NavLink to={`${linkto}`} style={({isActive})=>({
+            color: 'inherit',
+            font: 'inherit',
+            textDecoration: 'inherit',
+            display: 'flex',
+            gap: '8px',
+            textTransform: 'capitalize',
+            height: '32px',
+            borderRadius: '6px',
+            padding: '4px',
+            marginBottom: '2px',
+            cursor: 'pointer',
+            backgroundColor: isActive && '#39393b'
+        })}
+        onClick={(e)=> {!linkto && e.preventDefault()}}
+        >
+            {children}
+            <span style={{
+                fontWeight: '500',
+                color: '#ffffffeb'
+            }}>
+                {text}
+            </span>
+        </NavLink>
 
+    )
 }
+// background-color: #39393b

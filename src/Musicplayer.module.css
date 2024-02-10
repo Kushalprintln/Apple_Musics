@@ -1,6 +1,6 @@
 .musicplayer{
     /* border: 1px solid black; */
-    height: 44px;
+    height: 54px;
     position: fixed;
     top: 0;
     left: 260px;
@@ -10,12 +10,38 @@
     color: #ffffffeb;
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 .controlscontainer{
     width: 188px;
     height: 32px;
     padding: 0px 16px;
+    margin: 0 2.2%;
     /* border: 1px solid white; */
     display: flex;
     align-items: center;
+    color: #626262;
+}
+.signInSection{
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+@media screen and (max-width: 1300px) {
+    .controlscontainer{
+        margin: 0 0;
+    }
+}
+@media screen and (max-width: 1050px) {
+    .musicplayer{
+        padding: 0 10px;
+        gap: 10px;
+    }
+}
+@media screen and (max-width: 875px) {
+    .musicplayer{
+        left: 0;
+        width: 100%;
+    }
 }
