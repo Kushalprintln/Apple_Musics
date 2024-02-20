@@ -6,6 +6,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import Home from './Home.jsx'
 import Browse from './Browse.jsx'
 import Radio from './Radio.jsx'
+import Album from './Album.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route index element={<Home/>}/>
       <Route path='browse' element={<Browse/>}/>
       <Route path='radio' element={<Radio/>}/>
+      <Route path='album/:albumId' element={<Album/>}/>
     </Route>
   </Routes>
   </BrowserRouter>

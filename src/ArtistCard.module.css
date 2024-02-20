@@ -1,0 +1,21 @@
+.artist{
+width: 130px;
+text-align: center;
+cursor: pointer;
+margin-right: 20px;
+}
+.artist img{
+width: 100%;
+border-radius: 50%;
+}
+.artist:hover .artistimg{
+   opacity: 0.8;
+}
+.artist h3{
+margin: 8px 0 0;
+font-size: 12px;
+color: #ffffffeb;
+}
+.artist h3:hover{
+text-decoration: underline;
+}

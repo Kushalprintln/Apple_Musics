@@ -1,0 +1,47 @@
+.songrow{
+    /* border: 1px solid; */
+    height: 54px;
+    display: flex;
+    align-items: center;
+    padding-right: 18px;
+    color: #ffffffa3;
+    border-radius: 8px;
+}
+.songrow:hover{
+    background-color: hsla(0,0%,100%,.06);
+}
+.song{
+    display: flex;
+    align-items: center;
+    padding-left: 7px;
+    gap: 12px;
+}
+.songrow .song img{
+    width: 40px;
+    border-radius: 5px;
+}
+.songrow .song{
+    width: 429px;
+    font-size: 12px;
+    height: fit-content;
+    font-weight: 600;
+    color: #ffffffeb;
+}
+.songrow .artist{
+    width: 290px;
+    font-size: 12px;
+    height: fit-content;
+    font-weight: 600;
+}
+.songrow .album{
+    width: 300px;
+    font-size: 12px;
+    height: fit-content;
+    font-weight: 600;
+}
+.songrow .time{
+    flex-grow: 1;
+    font-size: 12px;
+    height: fit-content;
+    font-weight: 600;
+}

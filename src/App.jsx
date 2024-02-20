@@ -3,12 +3,13 @@ import Mainsection from './Mainsection'
 import Navbar from './Navbar'
 import Musicplayer from "./Musicplayer";
 import { useEffect, useState } from 'react';
+import NavbarStrip from './NavbarStrip';
 
 
 function App() {
 
   const [showDetails, setshowDetails] = useState(true);
-  const [showside, setshowside] = useState(true);
+  const [showside, setshowside] = useState('nav');
 
   // ----------------------RESPONSIVE-------------------------
   function responsive() {
@@ -18,10 +19,10 @@ function App() {
       setshowDetails(true);
     }
     if(window.innerWidth < 875){
-      setshowside(false);
+      setshowside('strip');
     }
     else{
-      setshowside(true);
+      setshowside('nav');
     }
   }
 
@@ -37,11 +38,12 @@ function App() {
 
   return (
     <div className={styles.layout}>
-      {showside && <Navbar />}
+      {showside==='nav' && <Navbar />}
+      {showside==='strip' && <NavbarStrip/>}
       <Musicplayer showDetails={showDetails} />
       <Mainsection />
     </div>
   )
 }
 
-export default App
+export default App;

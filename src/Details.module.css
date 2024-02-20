@@ -1,0 +1,50 @@
+.details{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.details img{
+    width: 270px;
+    height: 270px;
+    border-radius: 20px;
+}
+.info{
+    /* border: 1px solid; */
+    height: fit-content;
+}
+.info .albumHeading{
+    font-size: 26px;
+    font-weight: 600;
+}
+.appleHeading{
+    font-size: 26px;
+    font-weight: 400;
+    color: #fa586a;
+    cursor: pointer;
+}
+.appleHeading:hover{
+    text-decoration: underline;
+}
+.update{
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffffffa3;
+}
+.albumDis{
+    margin-top: 30px;
+    /* border: 1px solid; */
+    width: 100%;
+    max-width: 440px;
+    height: 54px;
+    font-size: 13px;
+    color: #ffffffa3;
+}
+@media screen and (max-width: 1000px) {
+    .details{
+        flex-direction: column;
+        text-align: center;
+    }
+}

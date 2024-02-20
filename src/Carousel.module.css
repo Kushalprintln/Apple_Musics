@@ -1,0 +1,39 @@
+.carousel{
+    /* border: 1px solid; */
+    display: flex;
+    position: relative;
+}
+.carousalContainer{
+    display: flex;
+    width: 100%;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+.carousalContainer::-webkit-scrollbar {
+    display: none;
+}
+.innercontainer{
+    display: flex;
+    /* gap: 24px; */
+}
+.leftbtn,.rightbtn{
+    display: flex;
+    /* border: 1px solid; */
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    cursor: pointer;
+    transition: background-color .25s linear,color .25s linear,opacity .25s linear;
+}
+.leftbtn{
+    left: -40px;
+}
+.rightbtn{
+    right: -40px;
+}
+.carousel:hover .leftbtn,.carousel:hover .rightbtn{
+    opacity: 1;
+}

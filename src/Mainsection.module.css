@@ -6,7 +6,7 @@
 }
 @media screen and (max-width: 875px) {
     .main{
-        left: 0;
-        width: 100%;
+        left: 54px;
+        width: calc(100% - 54px);
     }
 }

@@ -7,8 +7,6 @@ import { TfiMenuAlt } from "react-icons/tfi";
 import SingInBtn from "./SignInBtn";
 export default function Musicplayer({showDetails}){
 
-    
-
     return(
         <div className={styles.musicplayer}>
             {showDetails && <div className={styles.controlscontainer}>
