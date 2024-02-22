@@ -14,8 +14,8 @@ export default function Browse(){
     }
 
     //REQUIRMENTS;
-    const songURL = 'https://academics.newtonschool.co/api/v1/music/song?limit=100';
-    const albumURL = 'https://academics.newtonschool.co/api/v1/music/album?limit=100';
+    const songURL = 'https://academics.newtonschool.co/api/v1/music/song?limit=20';
+    const albumURL = 'https://academics.newtonschool.co/api/v1/music/album?limit=20';
     const header = {'projectId': 'f104bi07c490'}
 
     async function getSongs(){

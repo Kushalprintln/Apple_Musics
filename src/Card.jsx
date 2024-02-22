@@ -3,7 +3,7 @@ import styles from './Card.module.css'
 import { Link } from "react-router-dom";
 export default function Card({data}){
     return (
-        <Link to={`/album/${data._id}`}>
+        <Link to={`/album/${data._id}`} style={{textDecoration:'none'}}>
         <div className={styles.card}>
             <img src={data.image} alt="" />
             <div className={styles.details}>

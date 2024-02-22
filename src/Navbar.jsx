@@ -12,10 +12,12 @@ export default function Navbar(){
     return (
         <div className={styles.navbar}>
             <Link style={{display:"flex"}}><img src={logo} alt="" className={styles.logo}/></Link>
-            <div className={styles.search}>
-                <SearchIcon/>
-                <input type="text" placeholder="Search"/>
-            </div>
+            <Link to={'/search'} style={{textDecoration:'none'}}>
+                <div className={styles.search}>
+                    <SearchIcon/>
+                    <input type="text" placeholder="Search"/>
+                </div>
+            </Link>
             <div className={styles.menu}>
                 <Navbtn text='listen now' linkto='/'>
                     <PlayCircleOutlineOutlinedIcon sx={{ color: '#fa586a' }}/>
