@@ -18,10 +18,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route index element={<Home/>}/>
       <Route path='browse' element={<Browse/>}/>
       <Route path='radio' element={<Radio/>}/>
+      <Route path='search' element={<Searchpage/>}/>
       <Route path='album/:albumId' element={<Album/>}/>
       <Route path='artist/:artistId' element={<Artist/>}/>
       <Route path='mood/:mood' element={<Mood/>}/>
-      <Route path='search' element={<Searchpage/>}/>
     </Route>
   </Routes>
   </BrowserRouter>

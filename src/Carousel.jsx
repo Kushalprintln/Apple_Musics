@@ -4,6 +4,8 @@ import styles from './Carousel.module.css';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArtistCard from "./ArtistCard";
+import RadioCardConatiner from "./RadioCardContainer";
+import RadioCard from "./RadioCard";
 export default function Carousel({cardtype,data}){
     const left = useRef();
     const right = useRef();
@@ -16,6 +18,57 @@ export default function Carousel({cardtype,data}){
     function scrollR() {
         slidcontainer.current.scrollLeft += 1220;
     }
+
+    function returnCards(){
+        if(cardtype === 'song'){
+            return (data && data.map((ele,idx)=>{
+                return <Card data={ele} key={idx}/>
+            }));
+        }else if(cardtype === 'artist'){
+            return (data && data.map((ele,idx)=>{
+                return <ArtistCard data={ele} key={idx}/>
+            }))
+        }
+        else if(cardtype === 'radio'){
+            return(
+                <>
+                <RadioCardConatiner>
+                    <RadioCard/>
+                    <RadioCard/>
+                </RadioCardConatiner>
+                <RadioCardConatiner>
+                    <RadioCard/>
+                    <RadioCard/>
+                </RadioCardConatiner>
+                <RadioCardConatiner>
+                    <RadioCard/>
+                    <RadioCard/>
+                </RadioCardConatiner>
+                <RadioCardConatiner>
+                    <RadioCard/>
+                    <RadioCard/>
+                </RadioCardConatiner>
+                <RadioCardConatiner>
+                    <RadioCard/>
+                    <RadioCard/>
+                </RadioCardConatiner>
+                <RadioCardConatiner>
+                    <RadioCard/>
+                    <RadioCard/>
+                </RadioCardConatiner>
+                <RadioCardConatiner>
+                    <RadioCard/>
+                    <RadioCard/>
+                </RadioCardConatiner>
+                <RadioCardConatiner>
+                    <RadioCard/>
+                    <RadioCard/>
+                </RadioCardConatiner>
+                </>
+            )
+        }
+    }
+
     return (
         <div className={styles.carousel}>
             <div className={styles.leftbtn} ref={left} onClick={scrollL}>
@@ -23,14 +76,7 @@ export default function Carousel({cardtype,data}){
             </div>
             <div className={styles.carousalContainer} ref={slidcontainer}>
                 <div className={styles.innercontainer}>
-                    {cardtype==='song' ?   
-                    data && data.map((ele,idx)=>{
-                        return <Card data={ele} key={idx}/>
-                    }):
-                    data && data.map((ele,idx)=>{
-                        return <ArtistCard data={ele} key={idx}/>
-                    })
-                    }
+                    {returnCards()}
                 </div>
             </div>
             <div className={styles.rightbtn} ref={right} onClick={scrollR}>

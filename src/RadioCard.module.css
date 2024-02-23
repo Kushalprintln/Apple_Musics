@@ -1,0 +1,52 @@
+.radiocard{
+    width: 379px;
+    min-width: 298px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.radioimgcontainer{
+    display: flex;
+    width: 97px;
+    height: 97px;
+    position: relative;
+}
+.playlogo{
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    background-color: #7b7a75;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+}
+.playlogo:hover{
+    background-color: #fa586a;
+}
+.radiocard:hover .playlogo{
+    opacity: 1;
+}
+.channelimage{
+    width: 97px;
+    border-radius: 10px;
+}
+.radioinfo{
+    width: 123px;
+    height: fit-content;
+}
+.radioinfo h4{
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 1px;
+}
+.radioinfo p{
+    font-size: 12px;
+    font-weight: 400;
+    color: hsla(0, 0%, 100%, .64);;
+}
