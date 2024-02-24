@@ -1,9 +1,10 @@
 .radiocard{
+    /* border: 1px solid ; */
     width: 379px;
     min-width: 298px;
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
     cursor: pointer;
 }
 .radioimgcontainer{
@@ -39,6 +40,7 @@
 .radioinfo{
     width: 123px;
     height: fit-content;
+    flex-grow: 1;
 }
 .radioinfo h4{
     font-size: 15px;

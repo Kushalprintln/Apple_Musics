@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from './Musicplayer.module.css';
 import Controls from "./Controls";
 import Player from "./Player";
@@ -16,7 +16,7 @@ export default function Musicplayer({showDetails}){
             {showDetails && <Volume/>}
             <div className={styles.signInSection}>
             {showDetails && <TfiMenuAlt />}
-                <SingInBtn/>
+                <SingInBtn />
             </div>
         </div>
     )

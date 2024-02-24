@@ -5,7 +5,7 @@ export default function RadioCardConatiner({children}){
         display:'flex',
         flexDirection:'column',
         gap:'10px',
-        marginRight:'20px'
+        marginRight:'29px'
     }
     return (
         <div style={ContainerCSS}>

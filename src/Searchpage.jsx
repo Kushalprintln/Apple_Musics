@@ -15,7 +15,7 @@ export default function Searchpage(){
         {mood:"happy",img:happy},
         {mood:"romantic",img:romatic},
         {mood:"excited",img:excited},
-        {mood:"sad",img:sad},
+        {mood:"sad",img:sad}
     ]
     return (
         <div className={styles.searchpage}>

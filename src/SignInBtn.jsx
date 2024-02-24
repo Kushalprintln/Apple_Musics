@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoPerson } from "react-icons/io5";
+import Authcontext from "./AuthContext";
 export default function SingInBtn(){
-    const btnstyles = {}
+    const Auth = useContext(Authcontext);
+    console.log(Auth)
+
+    function SetLoginModal(){
+        Auth.singupModal(true);
+    }
     return (
     <button style={{width:'88px',
         height:'28px',
@@ -18,7 +24,7 @@ export default function SingInBtn(){
         gap:'3px',
         letterSpacing:'1px',
         cursor:'pointer'
-    }}>
+    }} onClick={SetLoginModal}>
         <IoPerson /> Sign In
     </button>
     )

@@ -30,42 +30,12 @@ export default function Carousel({cardtype,data}){
             }))
         }
         else if(cardtype === 'radio'){
-            return(
-                <>
-                <RadioCardConatiner>
-                    <RadioCard/>
-                    <RadioCard/>
-                </RadioCardConatiner>
-                <RadioCardConatiner>
-                    <RadioCard/>
-                    <RadioCard/>
-                </RadioCardConatiner>
-                <RadioCardConatiner>
-                    <RadioCard/>
-                    <RadioCard/>
-                </RadioCardConatiner>
-                <RadioCardConatiner>
-                    <RadioCard/>
-                    <RadioCard/>
-                </RadioCardConatiner>
-                <RadioCardConatiner>
-                    <RadioCard/>
-                    <RadioCard/>
-                </RadioCardConatiner>
-                <RadioCardConatiner>
-                    <RadioCard/>
-                    <RadioCard/>
-                </RadioCardConatiner>
-                <RadioCardConatiner>
-                    <RadioCard/>
-                    <RadioCard/>
-                </RadioCardConatiner>
-                <RadioCardConatiner>
-                    <RadioCard/>
-                    <RadioCard/>
-                </RadioCardConatiner>
-                </>
-            )
+            return( data && data.map((ele,idx)=>{
+                return <RadioCardConatiner key={idx}>
+                            <RadioCard data={ele[0]}/>
+                            <RadioCard data={ele[1]}/>
+                       </RadioCardConatiner>
+            }))
         }
     }
 

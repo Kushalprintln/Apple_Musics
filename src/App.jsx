@@ -4,12 +4,14 @@ import Navbar from './Navbar'
 import Musicplayer from "./Musicplayer";
 import { useEffect, useState } from 'react';
 import NavbarStrip from './NavbarStrip';
-
+import SignUp from './SignUp';
+import Authcontext from './AuthContext';
 
 function App() {
 
   const [showDetails, setshowDetails] = useState(true);
   const [showside, setshowside] = useState('nav');
+  const [singupModal,setsingupModal] = useState(false);
 
   // ----------------------RESPONSIVE-------------------------
   function responsive() {
@@ -37,12 +39,17 @@ function App() {
   // ----------------------RESPONSIVE END-------------------------
 
   return (
-    <div className={styles.layout}>
-      {showside==='nav' && <Navbar />}
-      {showside==='strip' && <NavbarStrip/>}
-      <Musicplayer showDetails={showDetails} />
-      <Mainsection />
-    </div>
+    <Authcontext.Provider value={{
+      singupModal:setsingupModal,
+    }}>
+      <div className={styles.layout}>
+        {showside==='nav' && <Navbar />}
+        {showside==='strip' && <NavbarStrip/>}
+        <Musicplayer showDetails={showDetails} />
+        {singupModal && <SignUp close={setsingupModal}/>}
+        <Mainsection />
+      </div>
+    </Authcontext.Provider>
   )
 }
 
