@@ -10,6 +10,8 @@ import Album from './Album.jsx'
 import Artist from './Artist.jsx'
 import Searchpage from './SearchPage.jsx'
 import Mood from './Mood.jsx'
+import SubscribePage from './SubscribePage.jsx'
+import Setting from './Setting.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -19,6 +21,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='browse' element={<Browse/>}/>
       <Route path='radio' element={<Radio/>}/>
       <Route path='search' element={<Searchpage/>}/>
+      <Route path='subscribe' element={<SubscribePage/>}/>
+      <Route path='setting' element={<Setting/>}/>
       <Route path='album/:albumId' element={<Album/>}/>
       <Route path='artist/:artistId' element={<Artist/>}/>
       <Route path='mood/:mood' element={<Mood/>}/>

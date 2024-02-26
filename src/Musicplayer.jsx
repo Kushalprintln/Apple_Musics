@@ -5,7 +5,13 @@ import Player from "./Player";
 import Volume from "./Volume";
 import { TfiMenuAlt } from "react-icons/tfi";
 import SingInBtn from "./SignInBtn";
+
+import Authcontext from "./AuthContext";
+import UserBtn from "./UserBtn";
+
 export default function Musicplayer({showDetails}){
+
+    const Authentication = useContext(Authcontext);
 
     return(
         <div className={styles.musicplayer}>
@@ -16,7 +22,7 @@ export default function Musicplayer({showDetails}){
             {showDetails && <Volume/>}
             <div className={styles.signInSection}>
             {showDetails && <TfiMenuAlt />}
-                <SingInBtn />
+            {Authentication.User[0] ? <UserBtn/> : <SingInBtn />}
             </div>
         </div>
     )

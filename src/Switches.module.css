@@ -10,7 +10,7 @@ body {
 }
 
 /* resize font-size on html and body level. html is required for widths based on rem */
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
     html,
     body {
         font-size: 20px;
@@ -29,7 +29,7 @@ body {
     body {
         font-size: 12px;
     }
-}
+} */
 
 /* container for all of the switch elements
     - adjust "width" to fit the content accordingly

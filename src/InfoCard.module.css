@@ -1,0 +1,13 @@
+.infocard {
+ min-width: 200px;
+}
+.infocard span{
+ margin-bottom: 5px;
+}
+.editbtn{
+    color: #fa233b;
+    cursor: pointer;
+}
+.editbtn:hover{
+    text-decoration: underline;
+}

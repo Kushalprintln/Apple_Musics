@@ -1,0 +1,30 @@
+.setting{
+    min-height: calc(100vh - 160px);
+    padding: 0px 40px;
+    background-color: #1f1f1f;
+    color: #ededed;
+}
+.setting h1{
+    padding-bottom: 8px;
+    padding-top: 32px;
+    border-bottom: 0.5px solid;
+} 
+.summary{
+    margin: 20px 0;
+    display: flex;
+    padding-bottom: 8px;
+    border-bottom: 0.5px solid;
+}
+.summary h3{
+    font-size: 21px;
+    font-weight: 600;  
+    /* border: 1px solid;   */
+} 
+.userinfo{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:0 20px;
+    /* border: 1px solid; */
+}

@@ -3,7 +3,7 @@ import { IoPerson } from "react-icons/io5";
 import Authcontext from "./AuthContext";
 export default function SingInBtn(){
     const Auth = useContext(Authcontext);
-    console.log(Auth)
+    // console.log(Auth)
 
     function SetLoginModal(){
         Auth.singupModal(true);

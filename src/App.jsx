@@ -7,11 +7,15 @@ import NavbarStrip from './NavbarStrip';
 import SignUp from './SignUp';
 import Authcontext from './AuthContext';
 
+import { ToastContainer, toast } from 'react-toastify';
+
+
 function App() {
 
   const [showDetails, setshowDetails] = useState(true);
   const [showside, setshowside] = useState('nav');
   const [singupModal,setsingupModal] = useState(false);
+  const [user,setUser] = useState(null);
 
   // ----------------------RESPONSIVE-------------------------
   function responsive() {
@@ -32,16 +36,28 @@ function App() {
     window.addEventListener('resize', responsive);
     responsive();
   }
+  // ----------------------RESPONSIVE END-------------------------
+  // ----------------------CHECK USER LOGIN----------------------
+  
+  function userCheck(){
+    if(localStorage.getItem('user')){
+      setUser(JSON.parse(localStorage.getItem('user')));
+    }
+  }
 
   useEffect(() => {
     resizing();
+    userCheck();
   }, [])
-  // ----------------------RESPONSIVE END-------------------------
+
+
 
   return (
     <Authcontext.Provider value={{
       singupModal:setsingupModal,
+      User:[user,setUser]
     }}>
+      <ToastContainer />
       <div className={styles.layout}>
         {showside==='nav' && <Navbar />}
         {showside==='strip' && <NavbarStrip/>}
