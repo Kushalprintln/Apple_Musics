@@ -11,7 +11,7 @@ import Navbtn from "./Navbtn";
 export default function Navbar(){
     return (
         <div className={styles.navbar}>
-            <Link style={{display:"flex"}}><img src={logo} alt="" className={styles.logo}/></Link>
+            <Link to={'/'} style={{display:"flex"}}><img src={logo} alt="" className={styles.logo}/></Link>
             <Link to={'/search'} style={{textDecoration:'none'}}>
                 <div className={styles.search}>
                     <SearchIcon/>

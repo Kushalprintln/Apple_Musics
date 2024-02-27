@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './SubscribeCard.module.css';
 import applemusicicon from '../images/icon_music__eo8ni6s21cqe_large.png'
+import SubscribePlanBtn from "./SubscribePlanBtn";
 export default function SubscribeCard({data}){
     return (
         <div className={styles.subscribecard}>
@@ -19,6 +20,9 @@ export default function SubscribeCard({data}){
                     return <li key={idx}>{ele}</li>
                 })}
             </ul>
+            <div className={styles.btncontainer}>
+                <SubscribePlanBtn plan={data.heading}/>
+            </div>
         </div>
     )
 }

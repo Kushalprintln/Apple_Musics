@@ -22,7 +22,7 @@ export default function Searchpage(){
             <Heading text={'Search by Mood'}/>
             <div className={styles.cardContainer}>
                 {moods.map((ele,idx)=>{
-                    return <MoodCard img={ele.img} mood={ele.mood}/>
+                    return <MoodCard img={ele.img} mood={ele.mood} key={idx}/>
                 })}
             </div>
         </div>

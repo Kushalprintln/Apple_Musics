@@ -19,7 +19,7 @@ export default function SignUp({close}){
     const [formData,setFormData] = useState({
         name:'soemname',
         email:'someemail@gmail.com',
-        password:'somepass',
+        password:'somenewpassthree',
         appType: 'music'
     })
 
@@ -127,7 +127,7 @@ export default function SignUp({close}){
 
     // SETTING USER
     function LoginUser(data,token){
-        const userdata = {...data,JWS:token};
+        const userdata = {...data,JWT:token};
         console.log(userdata);
         Authentication.User[1]({...userdata})
         localStorage.setItem('user',JSON.stringify(userdata));

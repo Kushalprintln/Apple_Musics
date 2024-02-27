@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {toast} from 'react-toastify';
 export default function Navbtn({ children, text, linkto, style}) {
     return (
         <NavLink to={`${linkto}`} style={({isActive})=>({
@@ -18,7 +19,19 @@ export default function Navbtn({ children, text, linkto, style}) {
             backgroundColor: isActive && '#39393b',
             ...style
         })}
-        onClick={(e)=> {!linkto && e.preventDefault()}}
+        onClick={(e)=> {!linkto && e.preventDefault();
+            !linkto && 
+            toast.success('Downloading Apple Musics', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+        }}
         >
             {children}
             {text && <span style={{

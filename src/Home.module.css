@@ -20,3 +20,18 @@
     margin: 0 auto;
     font-size: 17px;
 }
+
+.subscribe{
+    width: 152px;
+    height: 32px;
+    padding: 8px 16px;
+    font-size: 13px;
+    background-color: #d60017;
+    border-radius: 4px;
+    min-width: 125px;
+    font-weight: 700;
+    border: none;
+    color: #ffffffeb;
+    margin-top: 5px;
+    cursor: pointer;
+}
