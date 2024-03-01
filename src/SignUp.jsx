@@ -125,12 +125,57 @@ export default function SignUp({close}){
         }
     }
 
+    
+    async function gettingLikedSongs(token){
+        // REQUIREMENT FOR GETTING LIKED SONGS;
+        const LikeSongURL = 'https://academics.newtonschool.co/api/v1/music/favorites/like';
+        const LikeSongsheader = { 'projectId': 'f104bi07c490', 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' };
+        
+        const resp = await fetch(LikeSongURL,{
+            method:'GET',
+            headers: LikeSongsheader,
+        })
+        console.log("Response",resp);
+        const songdata = await resp.json();
+        console.log("liked songs",songdata);
+        console.log("liked songs",songdata.data.songs);
+        if(resp.ok){
+            // toast.success('Getting Liked Songs', {
+            //     position: "top-center",
+            //     autoClose: 3000,
+            //     hideProgressBar: true,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            //     theme: "dark",
+            // });
+            let songids = [];
+            songdata.data.songs.map((ele)=>{
+                songids.push(ele._id);
+            })
+            Authentication.LikedSongs[1]([...songids]);
+        }else{
+            // toast.error(`${status.message}`, {
+            //     position: "top-center",
+            //     autoClose: 3000,
+            //     hideProgressBar: true,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            //     theme: "dark",
+            // });
+        }
+    }
+
     // SETTING USER
     function LoginUser(data,token){
         const userdata = {...data,JWT:token};
         console.log(userdata);
         Authentication.User[1]({...userdata})
         localStorage.setItem('user',JSON.stringify(userdata));
+        gettingLikedSongs(token);
     }
 
     // CLEAR FORM

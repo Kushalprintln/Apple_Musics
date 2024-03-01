@@ -13,6 +13,7 @@ export default function UserBtn() {
 
     function singOut(){
         Authentication.User[1](null);
+        Authentication.LikedSongs[1]([]);
         localStorage.removeItem('user');
         setDropDown(false);
     }

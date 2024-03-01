@@ -8,6 +8,7 @@ import excited from '../images/excited.jpg';
 import sad from '../images/sad.webp';
 
 import Heading from "./Heading";
+import { Outlet } from "react-router-dom";
 
 export default function Searchpage(){
 
@@ -19,6 +20,8 @@ export default function Searchpage(){
     ]
     return (
         <div className={styles.searchpage}>
+            <Outlet/>
+            <br />
             <Heading text={'Search by Mood'}/>
             <div className={styles.cardContainer}>
                 {moods.map((ele,idx)=>{

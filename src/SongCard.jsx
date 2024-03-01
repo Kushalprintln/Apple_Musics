@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
-import styles from './Songrow.module.css';
+import styles from './SongCard.module.css';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Authcontext from "./AuthContext";
-import { toast } from 'react-toastify';
+import {toast} from 'react-toastify';
 
-export default function Songrow({ data, bg, artist, album }) {
+
+export default function SongCard({ data }) {
     const Authentication = useContext(Authcontext);
     const Token = Authentication.User[0] && Authentication.User[0].JWT;
 
@@ -36,8 +38,8 @@ export default function Songrow({ data, bg, artist, album }) {
             //  });
             // Authentication.LikedSongs[1]([...likedsong.data.songs]);
             let msg = likedsong.message;
-            if (msg === 'song added to favorites successfully.') {
-                Authentication.LikedSongs[1](prev => [...prev, data._id]);
+            if(msg === 'song added to favorites successfully.'){
+                Authentication.LikedSongs[1](prev => [...prev,data._id]);
                 toast.success(msg, {
                     position: "top-center",
                     autoClose: 3000,
@@ -47,9 +49,9 @@ export default function Songrow({ data, bg, artist, album }) {
                     draggable: true,
                     progress: undefined,
                     theme: "dark",
-                    style: { textTransform: 'capitalize' }
+                    style:{textTransform:'capitalize'}
                 });
-            } else {
+            }else{
                 let updateLikedSongs = Authentication.LikedSongs[0].filter(item => item !== data._id);
                 Authentication.LikedSongs[1]([...updateLikedSongs]);
                 toast.info(msg, {
@@ -61,7 +63,7 @@ export default function Songrow({ data, bg, artist, album }) {
                     draggable: true,
                     progress: undefined,
                     theme: "dark",
-                    style: { textTransform: 'capitalize' }
+                    style:{textTransform:'capitalize'}
                 });
             }
 
@@ -88,23 +90,20 @@ export default function Songrow({ data, bg, artist, album }) {
     }
 
     return (
-        <div style={{ backgroundColor: bg ? '#232323' : null }} className={styles.songrow} >
-            <span className={styles.song}>
-                <img src={data.thumbnail} alt="" />
-                {data.title}
+        <div className={styles.card}>
+            <div className={styles.details}>
+                <h2 className={styles.title}>{data.title}</h2>
+                <p className={styles.discription}>Apple Music</p>
+            </div>
+            <img src={data.thumbnail} alt="" />
+            <span className={styles.playbtn}>
+                <PlayArrowIcon sx={{ color: '#fa586a', width: '0.9em', height: '0.9em' }} />
             </span>
-            <span className={styles.artist}>
-                {artist ? `${artist}` : `Artist Name`}
-            </span>
-            <span className={styles.album}>
-                {album ? `${album}` : `Album Name`}
-            </span>
-            <span className={styles.time}>Time</span>
-            <span className={styles.like} onClick={manageLike}>
-                {Authentication.LikedSongs[0].includes(data._id) ?
-                    <FavoriteIcon sx={{ color: '#fa586a', width: '0.9em', height: '0.9em' }} /> :
+            <span className={styles.likebtn} onClick={manageLike}>
+                {Authentication.LikedSongs[0].includes(data._id)?
+                    <FavoriteIcon sx={{ color: '#fa586a', width: '0.9em', height: '0.9em' }} />:
                     <FavoriteBorderIcon sx={{ color: '#fa586a', width: '0.9em', height: '0.9em' }} />
-                }
+                } 
             </span>
         </div>
     )

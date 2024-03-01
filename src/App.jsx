@@ -16,6 +16,8 @@ function App() {
   const [showside, setshowside] = useState('nav');
   const [singupModal,setsingupModal] = useState(false);
   const [user,setUser] = useState(null);
+  const [likedSongs,setLikedSongs] = useState([]);
+  console.log(likedSongs);
 
   // ----------------------RESPONSIVE-------------------------
   function responsive() {
@@ -55,7 +57,8 @@ function App() {
   return (
     <Authcontext.Provider value={{
       singupModal:setsingupModal,
-      User:[user,setUser]
+      User:[user,setUser],
+      LikedSongs:[likedSongs,setLikedSongs]
     }}>
       <ToastContainer />
       <div className={styles.layout}>

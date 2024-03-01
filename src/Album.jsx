@@ -5,6 +5,7 @@ import Details from "./Details";
 import Carousel from "./Carousel";
 import Heading from "./Heading";
 import Songs from "./Songs";
+import Loader from "./Loader";
 export default function Album(){
     const albumId = useParams();
     // console.log(albumId);
@@ -22,15 +23,26 @@ export default function Album(){
         setAlbumData(data.data);
     }
 
+    const LoadingCss = {
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    }
+
     useEffect(()=>{
         getAlbumData();
     },[])
 
     return (
         <>
-            <div className={styles.album}>
-                <Details image={albumData.image} title={albumData.title} discription={albumData.description}/>
-                <Songs songs={albumData.songs}/>
+            <div className={styles.album} style={albumData.length === 0 ? LoadingCss : null}>
+                {albumData.length !== 0 ?
+                    <>
+                    <Details image={albumData.image} title={albumData.title} discription={albumData.description}/>
+                    <Songs songs={albumData.songs} album={albumData.title}/>
+                    </>:
+                    <Loader />
+                }
             </div>
             <div className={styles.artistSection}>
                 <Heading text={"Featured Artists"}/>

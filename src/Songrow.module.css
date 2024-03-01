@@ -21,7 +21,7 @@
     border-radius: 5px;
 }
 .songrow .song{
-    width: 429px;
+    width: 400px;
     font-size: 12px;
     height: fit-content;
     font-weight: 600;
@@ -40,8 +40,21 @@
     font-weight: 600;
 }
 .songrow .time{
-    flex-grow: 1;
+    /* flex-grow: 1; */
     font-size: 12px;
+    width: 70px;
     height: fit-content;
     font-weight: 600;
+}
+.like{
+    display: flex;
+    cursor: pointer;
+}
+@media screen and (max-width: 700px) {
+    .songrow .artist{
+        display: none;
+    }
+    .songrow .album{
+       display: none;
+    }
 }

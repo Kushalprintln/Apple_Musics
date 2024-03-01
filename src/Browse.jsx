@@ -14,7 +14,7 @@ export default function Browse(){
     }
 
     //REQUIRMENTS;
-    const songURL = 'https://academics.newtonschool.co/api/v1/music/song?limit=20';
+    const songURL = 'https://academics.newtonschool.co/api/v1/music/song?page=2&limit=20';
     const albumURL = 'https://academics.newtonschool.co/api/v1/music/album?limit=20';
     const header = {'projectId': 'f104bi07c490'}
 
@@ -25,7 +25,7 @@ export default function Browse(){
         console.log(resp);
         const data = await resp.json();
         console.log('songs',data);
-        setSongs(data);
+        setSongs(data.data);
     }
     async function getAlbum(){
         const resp = await fetch(albumURL,{
@@ -47,8 +47,12 @@ export default function Browse(){
             <>
             <h1>Browser</h1>
             <br />
+            <Heading text={"Songs"}/>
+            <Carousel cardtype={'song'} data={songs}/>
+            <br />
             <Heading text={"Albums"}/>
-            <Carousel cardtype={'song'} data={album}/>
+            <Carousel cardtype={'album'} data={album}/>
+            <br />
             </>
             }
         </div>

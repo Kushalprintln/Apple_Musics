@@ -6,6 +6,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArtistCard from "./ArtistCard";
 import RadioCardConatiner from "./RadioCardContainer";
 import RadioCard from "./RadioCard";
+import SongCard from "./SongCard";
 export default function Carousel({cardtype,data}){
     const left = useRef();
     const right = useRef();
@@ -20,13 +21,18 @@ export default function Carousel({cardtype,data}){
     }
 
     function returnCards(){
-        if(cardtype === 'song'){
+        if(cardtype === 'album'){
             return (data && data.map((ele,idx)=>{
                 return <Card data={ele} key={idx}/>
             }));
         }else if(cardtype === 'artist'){
             return (data && data.map((ele,idx)=>{
                 return <ArtistCard data={ele} key={idx}/>
+            }))
+        }
+        else if(cardtype === 'song'){
+            return( data && data.map((ele,idx)=>{
+                return <SongCard data={ele} key={idx}/>
             }))
         }
         else if(cardtype === 'radio'){

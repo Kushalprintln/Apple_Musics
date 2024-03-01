@@ -7,7 +7,7 @@
     padding-right: 18px;
 }
 .songs .song{
-    width: 429px;
+    width: 400px;
     font-size: 12px;
     height: fit-content;
     font-weight: 600;
@@ -25,8 +25,9 @@
     font-weight: 600;
 }
 .songs .time{
-    flex-grow: 1;
+    /* flex-grow: 1; */
     font-size: 12px;
+    width: 91px;
     height: fit-content;
     font-weight: 600;
 }
@@ -59,4 +60,12 @@
     width: 1px;
     background-color: hsla(0,0%,100%,.1);
     transform: translateX(-12px);
+}
+@media screen and (max-width: 700px) {
+    .songs .artist{
+        display: none;
+    }
+    .songs .album{
+        display: none;
+    }
 }
