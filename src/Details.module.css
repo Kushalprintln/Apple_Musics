@@ -1,39 +1,46 @@
-.details{
+.details {
     /* border: 1px solid; */
     display: flex;
     align-items: center;
     gap: 40px;
     margin-bottom: 40px;
 }
-.details img{
+
+.details img {
     width: 270px;
     height: 270px;
     border-radius: 20px;
 }
-.info{
+
+.info {
     /* border: 1px solid; */
     height: fit-content;
 }
-.info .albumHeading{
+
+.info .albumHeading {
     font-size: 26px;
     font-weight: 600;
 }
-.appleHeading{
+
+.appleHeading {
     font-size: 26px;
     font-weight: 400;
     color: #fa586a;
     cursor: pointer;
 }
-.appleHeading:hover{
+
+.appleHeading:hover {
     text-decoration: underline;
 }
-.update{
+
+.update {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     color: #ffffffa3;
 }
-.albumDis{
+
+.albumDis {
     margin-top: 30px;
     /* border: 1px solid; */
     width: 100%;
@@ -42,8 +49,9 @@
     font-size: 13px;
     color: #ffffffa3;
 }
+
 @media screen and (max-width: 1000px) {
-    .details{
+    .details {
         flex-direction: column;
         text-align: center;
     }

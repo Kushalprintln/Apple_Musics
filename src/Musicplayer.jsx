@@ -12,13 +12,14 @@ import UserBtn from "./UserBtn";
 export default function Musicplayer({showDetails}){
 
     const Authentication = useContext(Authcontext);
+    console.log(Authentication.SelectedSong);
 
     return(
         <div className={styles.musicplayer}>
             {showDetails && <div className={styles.controlscontainer}>
                 <Controls/>
             </div>}
-                <Player/>
+                <Player song={Authentication.SelectedSong[0]}/>
             {showDetails && <Volume/>}
             <div className={styles.signInSection}>
             {showDetails && <TfiMenuAlt />}

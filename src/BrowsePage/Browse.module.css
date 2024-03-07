@@ -1,0 +1,23 @@
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* ------------------------------ */
+    min-height: calc(100vh - 160px);
+    padding: 0px 40px;
+    background-color: #1f1f1f;
+    color: #ededed;
+}
+
+.browse {
+    min-height: calc(100vh - 160px);
+    padding: 0px 40px;
+    background-color: #1f1f1f;
+    color: #ededed;
+}
+
+.browse h1 {
+    padding-bottom: 8px;
+    padding-top: 32px;
+    border-bottom: 0.5px solid
+}

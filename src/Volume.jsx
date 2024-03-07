@@ -20,7 +20,7 @@ export default function Volume() {
                 "&:hover, &.Mui-focusVisible, &.Mui-active": {boxShadow: "none"}},
                 width:'60px'
             }} 
-            defaultValue={40}
+            defaultValue={20}
             />
         </Stack>
         // </Box>

@@ -37,7 +37,7 @@ export default function Navbar(){
                 <Navbtn text='browse' linkto='browse'>
                     <WindowOutlinedIcon sx={{ color: '#fa586a' }}/>
                 </Navbtn>
-                <Navbtn text='Favorite Songs' linkto='radio'>
+                <Navbtn text='Favorite Songs' linkto='favorite'>
                     <FavoriteIcon sx={{ color: '#fa586a' }}/>
                 </Navbtn>
                 <Navbtn text='radio' linkto='radio'>

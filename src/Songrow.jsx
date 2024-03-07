@@ -87,19 +87,32 @@ export default function Songrow({ data, bg, artist, album }) {
         }
     }
 
+    function setsong() {
+        console.log(Authentication.SelectedSong);
+        Authentication.SelectedSong[1](data);
+    }
+
+    function setAndPlaySong(){
+        setsong();
+        const music = new Audio(data.audio_url);
+        // music.play();
+    }
+
     return (
-        <div style={{ backgroundColor: bg ? '#232323' : null }} className={styles.songrow} >
-            <span className={styles.song}>
-                <img src={data.thumbnail} alt="" />
-                {data.title}
-            </span>
-            <span className={styles.artist}>
-                {artist ? `${artist}` : `Artist Name`}
-            </span>
-            <span className={styles.album}>
-                {album ? `${album}` : `Album Name`}
-            </span>
-            <span className={styles.time}>Time</span>
+        <div style={{ backgroundColor: bg ? '#232323' : null }} className={styles.songrow} onClick={setAndPlaySong}>
+            <div className={styles.songdetails} onClick={setsong}>
+                <span className={styles.song}>
+                    <img src={data.thumbnail} alt="" />
+                    {data.title}
+                </span>
+                <span className={styles.artist}>
+                    {artist ? `${artist}` : `Artist Name`}
+                </span>
+                <span className={styles.album}>
+                    {album ? `${album}` : `Album Name`}
+                </span>
+                <span className={styles.time}>Time</span>
+            </div>
             <span className={styles.like} onClick={manageLike}>
                 {Authentication.LikedSongs[0].includes(data._id) ?
                     <FavoriteIcon sx={{ color: '#fa586a', width: '0.9em', height: '0.9em' }} /> :

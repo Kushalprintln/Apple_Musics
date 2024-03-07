@@ -1,6 +1,8 @@
+// IMPORTING REACT AND STYLES;
 import React from "react";
 import styles from './Details.module.css';
-export default function Details({image,title,discription}){
+// RETURNING DETAILS HEADING SECTION;
+export default function Details({ image, title, discription }) {
     return (
         <div className={styles.details}>
             <img src={image} alt="" />
