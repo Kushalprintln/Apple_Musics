@@ -1,0 +1,16 @@
+.subscribepage {
+    background-color: #1f1f1f;
+    min-height: calc(100vh - 160px);
+    text-align: center;
+    padding: 40px;
+    color: #ffffffeb;
+}
+
+.subscribecontainer {
+    /* border: 1px solid; */
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}

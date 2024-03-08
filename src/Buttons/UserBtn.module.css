@@ -1,0 +1,42 @@
+.userbtn {
+    /* border: 1px solid; */
+    display: flex;
+    padding: 0px 5px;
+    position: relative;
+}
+
+.userdropdown {
+    /* border: 1px solid; */
+    position: absolute;
+    top: calc(100% - 10px);
+    left: -150px;
+    width: 165px;
+    border-radius: 6px;
+    background-color: #2a2529;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 8px 40px rgba(0, 0, 0, 0.55);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.userdropdown ul {
+    list-style: none;
+}
+
+.userdropdown ul li {
+    padding: 0 10px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.userdropdown ul li:last-child {
+    border-bottom: none
+}
+
+.userdropdown ul li:hover {
+    background-color: hsla(0, 0%, 100%, .05);
+    ;
+}

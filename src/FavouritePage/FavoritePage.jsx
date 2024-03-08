@@ -4,11 +4,11 @@ import styles from './FavoritePage.module.css';
 // IMPORTING IMAGE
 import likeimg from '../../images/likedmusic.jpg'
 // IMPORTING OTHER COMPONENTS;
-import Details from "../Details";
-import Songs from "../Songs";
+import Details from "../assets/Details";
+import Songs from "../SongTable/Songs";
 // AUTHENTICATION CONTEXT AND FUNCTION;
-import Authcontext from "../AuthContext";
-import { gettingLikedSongs } from "../Logic";
+import Authcontext from "../Context/AuthContext";
+import { gettingLikedSongs } from "../Logic/Logic";
 
 export default function FavoritePage() {
 

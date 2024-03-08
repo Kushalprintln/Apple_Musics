@@ -1,14 +1,13 @@
 import styles from './App.module.css';
-import Mainsection from './Mainsection'
-import Navbar from './Navbar'
-import Musicplayer from "./Musicplayer";
+import Mainsection from './MainSection/Mainsection'
+import Navbar from './Navbar/Navbar'
+import Musicplayer from "./MusicPlayer/Musicplayer";
 import { useEffect, useState } from 'react';
-import NavbarStrip from './NavbarStrip';
-import SignUp from './SignUp';
-import Authcontext from './AuthContext';
+import NavbarStrip from './Navbar/NavbarStrip';
+import SignUp from './Modals/SignUp';
+import Authcontext from './Context/AuthContext';
 
 import { ToastContainer, toast } from 'react-toastify';
-
 
 function App() {
 
@@ -17,7 +16,7 @@ function App() {
   const [singupModal, setsingupModal] = useState(false);
   const [user, setUser] = useState(null);
   const [likedSongs, setLikedSongs] = useState([]);
-  const [SelectedSong,setSelectedSong] = useState(null);
+  const [SelectedSong, setSelectedSong] = useState(null);
   console.log(likedSongs);
 
   // ----------------------RESPONSIVE-------------------------
@@ -84,7 +83,7 @@ function App() {
       singupModal: setsingupModal,
       User: [user, setUser],
       LikedSongs: [likedSongs, setLikedSongs],
-      SelectedSong: [SelectedSong,setSelectedSong]
+      SelectedSong: [SelectedSong, setSelectedSong]
     }}>
       <ToastContainer />
       <div className={styles.layout}>

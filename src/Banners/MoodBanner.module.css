@@ -1,0 +1,18 @@
+.moodbanner {
+    /* border: 1px solid; */
+    overflow: hidden;
+    border-radius: 20px;
+    width: 90%;
+    margin: 0 auto 20px;
+    display: flex;
+    opacity: 0.6;
+}
+
+.bannerimg {
+    width: 100%;
+}
+
+.moodbanner:hover .bannerimg {
+    transform: rotate(-3deg) scale(1.2);
+    transition: all 0.3s ease-in-out;
+}

@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import styles from './Album.module.css';
 import { useParams } from "react-router-dom";
 // IMPORTING OTHER COMPONENT;
-import Details from "../Details";
-import Carousel from "../Carousel";
-import Heading from "../Heading";
-import Songs from "../Songs";
-import Loader from "../Loader";
-import { getAlbumData } from "../Logic";
+import Details from "../assets/Details";
+import Carousel from "../Carousel/Carousel";
+import Heading from "../assets/Heading";
+import Songs from "../SongTable/Songs";
+import Loader from "../assets/Loader";
+import { getAlbumData } from "../Logic/Logic";
 
 export default function Album() {
 

@@ -1,0 +1,27 @@
+.searchpage {
+    min-height: calc(100vh - 160px);
+    padding: 30px 40px;
+    background-color: #1f1f1f;
+    color: #ededed;
+}
+
+.cardContainer {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+}
+
+@media screen and (max-width: 1050px) {
+    .cardContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cardContainer {
+        grid-template-columns: 1fr;
+    }
+}

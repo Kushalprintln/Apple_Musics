@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from "react";
 import styles from './Browse.module.css';
 // IMPORTING OTHER COMPONENTS
-import Carousel from "../Carousel";
-import Loader from "../Loader";
-import Heading from "../Heading";
-import { getAlbum, getSongs } from "../Logic";
+import Carousel from "../Carousel/Carousel";
+import Loader from "../assets/Loader";
+import Heading from "../assets/Heading";
+import { getAlbum, getSongs } from "../Logic/Logic";
 
 export default function Browse() {
 
