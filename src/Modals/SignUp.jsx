@@ -23,6 +23,12 @@ export default function SignUp({ close }) {
         appType: 'music'
     })
 
+    const [error,setError] = useState({
+        nameError:'',
+        emailError:'',
+        passwordError:''
+    })
+
     function closemodal() {
         close(false);
         clearForm();
@@ -86,6 +92,40 @@ export default function SignUp({ close }) {
             });
         }
     }
+    function nameValidation(){
+        if(formData.name === ''){
+            setError((prev)=>{return {...prev,nameError:'Please enter valid name'}});
+            return false;
+        }else if(formData.name.length<3){
+            setError((prev)=>{return {...prev,nameError:'Name should be atleast 3 character'}});
+            return false;
+        }
+        setError((prev)=>{return {...prev,nameError:''}});
+        return true;
+    }
+    function emailValidation(){
+        if(formData.email === ''){
+            setError((prev)=>{return {...prev,emailError:'Please enter valid email'}});
+            return false;
+        }else if(!formData.email.includes('@')){
+            setError((prev)=>{return {...prev,emailError:'Email should contain @'}});
+            return false;
+        }
+        setError((prev)=>{return {...prev,emailError:''}});
+        return true;
+    }
+    function passwordValidation(){
+        if(formData.password === ''){
+            setError((prev)=>{return {...prev,passwordError:'Please enter valid password'}});
+            return false;
+        }else if(formData.password.length < 4 || formData.password.length > 18 ){
+            setError((prev)=>{return {...prev,passwordError:'Email should between 4 to 18 characters'}});
+            return false;
+        }
+        setError((prev)=>{return {...prev,passwordError:''}});
+        return true;
+    }
+    
 
     // SIGNUP
     async function singUp() {
@@ -167,9 +207,18 @@ export default function SignUp({ close }) {
 
     function authenticate() {
         if (selectedOption === 'SignUp') {
-            singUp();
+            nameValidation();
+            emailValidation();
+            passwordValidation();
+            if(nameValidation() && emailValidation() && passwordValidation()){
+                singUp();
+            }
         } else {
-            login();
+            emailValidation();
+            passwordValidation();
+            if(emailValidation() && passwordValidation()){
+                login();
+            }
         }
     }
 
@@ -191,13 +240,13 @@ export default function SignUp({ close }) {
                     {selectedOption === 'SignUp' &&
                         <>
                             <input type="text" value={formData.name} name="" id="name" placeholder="Name" onChange={(e) => { setFormData(prev => { return { ...prev, name: e.target.value } }) }} />
-                            {/* <p className={styles.formerror}>This is the error line</p> */}
+                            {error.nameError && <p className={styles.formerror}>{error.nameError}</p>}
                         </>
                     }
                     <input type="email" value={formData.email} name="" id="email" placeholder="Email or Apple ID" onChange={(e) => { setFormData(prev => { return { ...prev, email: e.target.value } }) }} />
-                    {/* <p className={styles.formerror}>This is the error line</p> */}
+                    {error.emailError && <p className={styles.formerror}>{error.emailError}</p>}
                     <input type="password" value={formData.password} name="" id="password" placeholder="Password" onChange={(e) => { setFormData(prev => { return { ...prev, password: e.target.value } }) }} />
-                    {/* <p className={styles.formerror}>This is the error line</p> */}
+                    {error.passwordError && <p className={styles.formerror}>{error.passwordError}</p>}
                 </form>
                 <PeopleIcon sx={{ color: '#fa2d48', height: '1.2em', width: '1.2em' }} />
                 <div className={styles.secureinfo}>

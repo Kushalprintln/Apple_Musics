@@ -8,6 +8,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Authcontext from "../Context/AuthContext";
 import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
 export default function UserBtn() {
     const [dropDown, setDropDown] = useState(false);
 
@@ -16,8 +17,20 @@ export default function UserBtn() {
     function singOut(){
         Authentication.User[1](null);
         Authentication.LikedSongs[1]([]);
+        console.log(Authentication);
         localStorage.removeItem('user');
         setDropDown(false);
+        toast.info('SignOut Successfully', {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            style: { textTransform: 'capitalize' }
+        });
     }
 
     return (

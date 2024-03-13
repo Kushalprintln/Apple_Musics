@@ -12,9 +12,10 @@ export default function Songs({ songs, album, artist }) {
                 <span className={styles.album}>Album</span>
                 <span className={styles.time}>Time</span>
             </div>
-            {songs && songs.map((ele, idx) => {
+            {songs.map((ele, idx) => {
                 return <Songrow data={ele} key={idx} bg={(idx % 2) === 0 ? true : false} album={album} artist={artist} />
-            })}
+            })
+            }
         </>
     )
 }

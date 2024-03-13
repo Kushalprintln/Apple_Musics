@@ -9,8 +9,11 @@ import Authcontext from "../Context/AuthContext";
 import { toast } from 'react-toastify';
 
 export default function Songrow({ data, bg, artist, album }) {
+    console.log(data);
     const Authentication = useContext(Authcontext);
     const Token = Authentication.User[0] && Authentication.User[0].JWT;
+    const music = new Audio(data.audio_url);
+    
 
     //REQUIRMENTS;
     const LikeSongURL = 'https://academics.newtonschool.co/api/v1/music/favorites/like';
@@ -72,15 +75,15 @@ export default function Songrow({ data, bg, artist, album }) {
         Authentication.SelectedSong[1](data);
     }
 
-    function setAndPlaySong(){
+    function setAndPlaySong() {
         setsong();
         const music = new Audio(data.audio_url);
-        // music.play();
+        music.play();
     }
 
     return (
-        <div style={{ backgroundColor: bg ? '#232323' : null }} className={styles.songrow} onClick={setAndPlaySong}>
-            <div className={styles.songdetails} onClick={setsong}>
+        <div style={{ backgroundColor: bg ? '#232323' : null }} className={styles.songrow}>
+            <div className={styles.songdetails} onClick={setAndPlaySong}>
                 <span className={styles.song}>
                     <img src={data.thumbnail} alt="" />
                     {data.title}

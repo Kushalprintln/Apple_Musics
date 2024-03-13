@@ -1,0 +1,17 @@
+.emptysongrow{
+    height: 54px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 18px;
+    color: #ffffffa3;
+    background-color: #232323;
+    border-radius: 8px;
+    /* border: 1px solid white; */
+    display: flex;
+    gap: 20px;
+}
+.nosongs{
+    filter: invert(50%);
+    width: 54px;
+}

@@ -23,6 +23,10 @@ export default function PasswordChange({ close }) {
         passwordCurrent: 'current_password',
         password: 'user_new_password',
         appType: 'music'
+    });
+    const[formError,setFormError] = useState({
+        passwordCurrentErr: '',
+        passwordErr: '',
     })
 
     //REQUIRMENTS;
@@ -63,6 +67,7 @@ export default function PasswordChange({ close }) {
                 progress: undefined,
                 theme: "dark",
             });
+            clearForm();
         }
     }
 
@@ -76,8 +81,41 @@ export default function PasswordChange({ close }) {
         })
     }
 
+    // this function is for checking purporse we are not using it.
     function Printform() {
         console.log(Updateform);
+    }
+
+    function currpasswordValidation(){
+        if(Updateform.passwordCurrent === ''){
+            setFormError((prev)=>{return {...prev,passwordCurrentErr:'Please enter valid password'}});
+            return false;
+        }else if(Updateform.passwordCurrent.length < 4 || Updateform.passwordCurrent.length > 18 ){
+            setFormError((prev)=>{return {...prev,passwordCurrentErr:'Email should between 4 to 18 characters'}});
+            return false;
+        }
+        setFormError((prev)=>{return {...prev,passwordCurrentErr:''}});
+        return true;
+    }
+
+    function passwordValidation(){
+        if(Updateform.password === ''){
+            setFormError((prev)=>{return {...prev,passwordErr:'Please enter valid password'}});
+            return false;
+        }else if(Updateform.password.length < 4 || Updateform.password.length > 18 ){
+            setFormError((prev)=>{return {...prev,passwordErr:'Email should between 4 to 18 characters'}});
+            return false;
+        }
+        setFormError((prev)=>{return {...prev,passwordErr:''}});
+        return true;
+    }
+
+    function Validation(){
+        currpasswordValidation();
+        passwordValidation();
+        if(currpasswordValidation() && passwordValidation()){
+            ChangePassword()
+        }
     }
 
     return (
@@ -95,16 +133,16 @@ export default function PasswordChange({ close }) {
                     <input type="text" name="" value={Updateform.name} id="name" placeholder="Name" disabled />
                     <input type="email" name="" value={Updateform.email} id="email" placeholder="Email or Apple ID" disabled />
                     <input type="password" name="" id="password" value={Updateform.passwordCurrent} placeholder="Password" onChange={(e) => { setUpdateform(prev => { return { ...prev, passwordCurrent: e.target.value } }) }} />
-                    {/* <p className={styles.formerror}>This is the error line</p> */}
+                    {formError.passwordCurrentErr && <p className={styles.formerror}>{formError.passwordCurrentErr}</p>}
                     <input type="password" name="" id="newpassword" value={Updateform.password} placeholder="New Password" onChange={(e) => { setUpdateform(prev => { return { ...prev, password: e.target.value } }) }} />
-                    {/* <p className={styles.formerror}>This is the error line</p> */}
+                    {formError.passwordErr && <p className={styles.formerror}>{formError.passwordErr}</p>}
                 </form>
                 <LockIcon sx={{ color: '#fa2d48', height: '1.2em', width: '1.2em' }} />
                 <div className={styles.secureinfo}>
                     <p>Protect Your Tunes: Changing your password ensures the security of your Apple Music account, keeping your music and personal information safe from unauthorized access.</p>
                     <span>See how your data is managed...</span>
                 </div>
-                <button className={styles.continue} onClick={ChangePassword} >Update Password</button>
+                <button className={styles.continue} onClick={Validation} >Update Password</button>
             </div>
         </div>
     )

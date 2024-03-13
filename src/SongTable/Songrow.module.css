@@ -1,6 +1,7 @@
 .songrow {
     /* border: 1px solid; */
     height: 54px;
+    width: 100%;
     display: flex;
     align-items: center;
     padding-right: 18px;
@@ -23,6 +24,7 @@
     display: flex;
     cursor: pointer;
     align-items: center;
+    width: 97%;
 }
 
 .songrow .song img {

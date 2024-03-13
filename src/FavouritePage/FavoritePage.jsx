@@ -9,6 +9,7 @@ import Songs from "../SongTable/Songs";
 // AUTHENTICATION CONTEXT AND FUNCTION;
 import Authcontext from "../Context/AuthContext";
 import { gettingLikedSongs } from "../Logic/Logic";
+import EmptySongrow from "../SongTable/EmptySongrow";
 
 export default function FavoritePage() {
 
@@ -25,13 +26,17 @@ export default function FavoritePage() {
     useEffect(() => {
         if (Authentication.User[0]) {
             getFavouriteSongData(token);
+        }else{
+            setLikedSongs([]);
         }
     }, [Authentication.User[0], Authentication.LikedSongs[0]])
 
     return (
         <div className={styles.favoritepage}>
             <Details image={likeimg} title={'Melodic Musings: My Favorite Tunes'} discription={'Discover the melodies that move me! Dive into a curated selection of my favorite tunes, ranging from soothing rhythms to energetic beats. Let the music speak for itself.'} />
-            <Songs songs={likedSongs} />
+            {likedSongs.length !==0 ? <Songs songs={likedSongs} /> :
+            <EmptySongrow/>
+            }
         </div>
     )
 }

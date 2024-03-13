@@ -9,6 +9,7 @@ import Heading from "../assets/Heading";
 import Songs from "../SongTable/Songs";
 import Loader from "../assets/Loader";
 import { getAlbumData } from "../Logic/Logic";
+import EmptySongrow from "../SongTable/EmptySongrow";
 
 export default function Album() {
 
@@ -31,7 +32,9 @@ export default function Album() {
                 {albumData.length !== 0 ?
                     <>
                         <Details image={albumData.image} title={albumData.title} discription={albumData.description} />
-                        <Songs songs={albumData.songs} album={albumData.title} />
+                        {albumData.songs.length !==0 ? <Songs songs={albumData.songs} album={albumData.title} /> :
+                         <EmptySongrow/>
+                        }
                     </> :
                     <Loader />
                 }

@@ -1,0 +1,23 @@
+.bannerImg{
+    width: 40.2%;
+}
+@media screen and (max-width: 1285px) {
+    .bannerImg{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .bannerImg{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 875px) {
+    .bannerImg{
+        width: 60%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .bannerImg{
+        width: 90%;
+    }
+}

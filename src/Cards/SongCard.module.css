@@ -67,3 +67,24 @@
 .discription:hover {
     text-decoration: underline;
 }
+
+@media screen and (max-width: 1260px) {
+    .card img {
+        width: 290px;
+        height: 163.125px;
+    }
+    .likebtn {
+        bottom: 35px;
+        right: 10px;
+    }  
+    .playbtn {
+        bottom: 35px;
+        left: 10px;
+    }
+}
+@media screen and (max-width: 875px) {
+    .card img {
+        width: 250px;
+        height: 140.625px;
+    }
+}
