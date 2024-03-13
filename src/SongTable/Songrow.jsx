@@ -1,20 +1,22 @@
 // IMPORT REACT AND STYLES;
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import styles from './Songrow.module.css';
 // IMPORTING ICONS;
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 // IMPORTING AUTHENTICATION;
 import Authcontext from "../Context/AuthContext";
+import AudioContext from '../Context/AudioContext'
 import { toast } from 'react-toastify';
 
 export default function Songrow({ data, bg, artist, album }) {
-    console.log(data);
     const Authentication = useContext(Authcontext);
     const Token = Authentication.User[0] && Authentication.User[0].JWT;
-    const music = new Audio(data.audio_url);
+    const audio = new Audio(data.audio_url);
+    audio.addEventListener('timeupdate',()=>{
+        
+    })
     
-
     //REQUIRMENTS;
     const LikeSongURL = 'https://academics.newtonschool.co/api/v1/music/favorites/like';
     const header = { 'projectId': 'f104bi07c490', 'Authorization': `Bearer ${Token}`, 'Content-Type': 'application/json' };
@@ -70,20 +72,17 @@ export default function Songrow({ data, bg, artist, album }) {
         }
     }
 
-    function setsong() {
-        console.log(Authentication.SelectedSong);
+    function HandleMusic(){
         Authentication.SelectedSong[1](data);
+        // console.log(data.audio_url);
+        Authentication.audref.current = audio;
     }
 
-    function setAndPlaySong() {
-        setsong();
-        const music = new Audio(data.audio_url);
-        music.play();
-    }
+
 
     return (
         <div style={{ backgroundColor: bg ? '#232323' : null }} className={styles.songrow}>
-            <div className={styles.songdetails} onClick={setAndPlaySong}>
+            <div className={styles.songdetails} onClick={HandleMusic}>
                 <span className={styles.song}>
                     <img src={data.thumbnail} alt="" />
                     {data.title}

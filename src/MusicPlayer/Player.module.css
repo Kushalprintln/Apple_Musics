@@ -62,14 +62,13 @@
     width: 100%;
     cursor: pointer;
     z-index: 3;
-    opacity: 0;
+    opacity: 0.1;
 }
 
 .progress {
     height: 3px;
-    width: 20%;
     background-color: #b8b8b8;
-    transition: 0.5s linear;
+    transition: 0.35s linear;
 }
 
 .seekdot {
@@ -79,9 +78,8 @@
     background-color: #b8b8b8;
     top: -2px;
     border-radius: 1px;
-    left: 20%;
     cursor: pointer;
-    transition: 0.5s linear;
+    transition: 0.35s linear;
 }
 
 @media screen and (max-width: 1200px) {

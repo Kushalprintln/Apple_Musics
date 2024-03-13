@@ -2,7 +2,7 @@ import styles from './App.module.css';
 import Mainsection from './MainSection/Mainsection'
 import Navbar from './Navbar/Navbar'
 import Musicplayer from "./MusicPlayer/Musicplayer";
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import NavbarStrip from './Navbar/NavbarStrip';
 import SignUp from './Modals/SignUp';
 import Authcontext from './Context/AuthContext';
@@ -16,8 +16,8 @@ function App() {
   const [singupModal, setsingupModal] = useState(false);
   const [user, setUser] = useState(null);
   const [likedSongs, setLikedSongs] = useState([]);
-  const [SelectedSong, setSelectedSong] = useState(null);
-  console.log(likedSongs);
+  const [song, setSong] = useState(null);
+  const audioRef = useRef();
 
   // ----------------------RESPONSIVE-------------------------
   function responsive() {
@@ -38,7 +38,7 @@ function App() {
     window.addEventListener('resize', responsive);
     responsive();
   }
-  // ----------------------RESPONSIVE END-------------------------
+  // ----------------------RESPONSIVE END------------------------
   // ----------------------CHECK USER LOGIN----------------------
 
   function userCheck() {
@@ -59,9 +59,9 @@ function App() {
       method: 'GET',
       headers: LikeSongsheader,
     })
-    console.log("Response", resp);
+    // console.log("Response", resp);
     const songdata = await resp.json();
-    console.log("liked songs", songdata.data.songs);
+    // console.log("liked songs", songdata.data.songs);
     if (resp.ok) {
       let songids = [];
       songdata.data.songs.map((ele) => {
@@ -83,7 +83,8 @@ function App() {
       singupModal: setsingupModal,
       User: [user, setUser],
       LikedSongs: [likedSongs, setLikedSongs],
-      SelectedSong: [SelectedSong, setSelectedSong]
+      SelectedSong: [song, setSong],
+      audref : audioRef
     }}>
       <ToastContainer />
       <div className={styles.layout}>
