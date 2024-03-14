@@ -17,16 +17,16 @@ export default function SignUp({ close }) {
 
     const [selectedOption, setSelectedOption] = useState('LoginIn');
     const [formData, setFormData] = useState({
-        name: 'soemname',
-        email: 'someemail@gmail.com',
-        password: 'somenewpassthree',
+        name: '',
+        email: '',
+        password: '',
         appType: 'music'
     })
 
-    const [error,setError] = useState({
-        nameError:'',
-        emailError:'',
-        passwordError:''
+    const [error, setError] = useState({
+        nameError: '',
+        emailError: '',
+        passwordError: ''
     })
 
     function closemodal() {
@@ -92,40 +92,40 @@ export default function SignUp({ close }) {
             });
         }
     }
-    function nameValidation(){
-        if(formData.name === ''){
-            setError((prev)=>{return {...prev,nameError:'Please enter valid name'}});
+    function nameValidation() {
+        if (formData.name === '') {
+            setError((prev) => { return { ...prev, nameError: 'Please enter valid name' } });
             return false;
-        }else if(formData.name.length<3){
-            setError((prev)=>{return {...prev,nameError:'Name should be atleast 3 character'}});
-            return false;
-        }
-        setError((prev)=>{return {...prev,nameError:''}});
-        return true;
-    }
-    function emailValidation(){
-        if(formData.email === ''){
-            setError((prev)=>{return {...prev,emailError:'Please enter valid email'}});
-            return false;
-        }else if(!formData.email.includes('@')){
-            setError((prev)=>{return {...prev,emailError:'Email should contain @'}});
+        } else if (formData.name.length < 3) {
+            setError((prev) => { return { ...prev, nameError: 'Name should be atleast 3 character' } });
             return false;
         }
-        setError((prev)=>{return {...prev,emailError:''}});
+        setError((prev) => { return { ...prev, nameError: '' } });
         return true;
     }
-    function passwordValidation(){
-        if(formData.password === ''){
-            setError((prev)=>{return {...prev,passwordError:'Please enter valid password'}});
+    function emailValidation() {
+        if (formData.email === '') {
+            setError((prev) => { return { ...prev, emailError: 'Please enter valid email' } });
             return false;
-        }else if(formData.password.length < 4 || formData.password.length > 18 ){
-            setError((prev)=>{return {...prev,passwordError:'Email should between 4 to 18 characters'}});
+        } else if (!formData.email.includes('@')) {
+            setError((prev) => { return { ...prev, emailError: 'Email should contain @' } });
             return false;
         }
-        setError((prev)=>{return {...prev,passwordError:''}});
+        setError((prev) => { return { ...prev, emailError: '' } });
         return true;
     }
-    
+    function passwordValidation() {
+        if (formData.password === '') {
+            setError((prev) => { return { ...prev, passwordError: 'Please enter valid password' } });
+            return false;
+        } else if (formData.password.length < 4 || formData.password.length > 18) {
+            setError((prev) => { return { ...prev, passwordError: 'Email should between 4 to 18 characters' } });
+            return false;
+        }
+        setError((prev) => { return { ...prev, passwordError: '' } });
+        return true;
+    }
+
 
     // SIGNUP
     async function singUp() {
@@ -173,10 +173,10 @@ export default function SignUp({ close }) {
             method: 'GET',
             headers: LikeSongsheader,
         })
-        console.log("Response", resp);
+        // console.log("Response", resp);
         const songdata = await resp.json();
-        console.log("liked songs", songdata);
-        console.log("liked songs", songdata.data.songs);
+        // console.log("liked songs", songdata);
+        // console.log("liked songs", songdata.data.songs);
         if (resp.ok) {
             let songids = [];
             songdata.data.songs.map((ele) => {
@@ -189,10 +189,15 @@ export default function SignUp({ close }) {
     // SETTING USER
     function LoginUser(data, token) {
         const userdata = { ...data, JWT: token };
-        console.log(userdata);
+        // console.log(userdata);
         Authentication.User[1]({ ...userdata })
         localStorage.setItem('user', JSON.stringify(userdata));
         gettingLikedSongs(token);
+    }
+
+    // PRINITNG FORM
+    function printform() {
+        console.log(formData);
     }
 
     // CLEAR FORM
@@ -210,18 +215,21 @@ export default function SignUp({ close }) {
             nameValidation();
             emailValidation();
             passwordValidation();
-            if(nameValidation() && emailValidation() && passwordValidation()){
+            if (nameValidation() && emailValidation() && passwordValidation()) {
+                printform()
                 singUp();
             }
         } else {
             emailValidation();
             passwordValidation();
-            if(emailValidation() && passwordValidation()){
+            if (emailValidation() && passwordValidation()) {
+                printform();
                 login();
             }
         }
     }
 
+    // not using this function here;
     const notify = () => toast("Wow so easy!");
 
     return (

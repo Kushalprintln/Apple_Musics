@@ -27,25 +27,10 @@ export default function Musicplayer({ showDetails }) {
     const [volume, setVolume] = useState(0.5);
 
     useEffect(() => {
-            let audioElement;
-            if(audioRef.current){
-                audioElement = audioRef.current;
                 clearPreviousPlaysong()
+                const audioElement = audioRef.current;
                 setAudio(audioElement);
-                // audioElement.volume = volume;
-                // audioElement.play();
-                // audioElement.addEventListener('timeupdate', updateTime);
-                // audioElement.addEventListener('ended', () => setIsPlaying(false));
-                // setIsPlaying(true);
-            }
-
-        // return () => {
-        //     if(audioElement){
-        //         audioElement.removeEventListener('timeupdate', updateTime);
-        //         audioElement.removeEventListener('ended', () => setIsPlaying(false));
-        //     }
-        // };
-    }, [volume,Authentication.SelectedSong[0]]);
+    }, [Authentication.SelectedSong[0]]);
 
     useEffect(()=>{
         if(audio){
@@ -60,6 +45,12 @@ export default function Musicplayer({ showDetails }) {
         //     audio.removeEventListener('ended', () => setIsPlaying(false));
         // };
     },[audio])
+
+    useEffect(()=>{
+        if(audio){
+            audio.volume = volume;;
+        }
+    },[volume])
 
     function clearPreviousPlaysong(){
         if (isPlaying) {

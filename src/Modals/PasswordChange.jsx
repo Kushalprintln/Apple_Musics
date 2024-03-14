@@ -11,7 +11,6 @@ import { toast } from 'react-toastify';
 export default function PasswordChange({ close }) {
 
     const Authentication = useContext(Authcontext)
-    console.log(Authentication);
 
     function closeModal() {
         close(false);
@@ -20,8 +19,8 @@ export default function PasswordChange({ close }) {
     const [Updateform, setUpdateform] = useState({
         name: `${Authentication.User[0].name}`,
         email: `${Authentication.User[0].email}`,
-        passwordCurrent: 'current_password',
-        password: 'user_new_password',
+        passwordCurrent: '',
+        password: '',
         appType: 'music'
     });
     const[formError,setFormError] = useState({
@@ -132,9 +131,9 @@ export default function PasswordChange({ close }) {
                 <form action="" className={styles.changepassform}>
                     <input type="text" name="" value={Updateform.name} id="name" placeholder="Name" disabled />
                     <input type="email" name="" value={Updateform.email} id="email" placeholder="Email or Apple ID" disabled />
-                    <input type="password" name="" id="password" value={Updateform.passwordCurrent} placeholder="Password" onChange={(e) => { setUpdateform(prev => { return { ...prev, passwordCurrent: e.target.value } }) }} />
+                    <input type="password" name="" id="password" value={Updateform.passwordCurrent} placeholder="Password" autoComplete="off" onChange={(e) => { setUpdateform(prev => { return { ...prev, passwordCurrent: e.target.value } }) }} />
                     {formError.passwordCurrentErr && <p className={styles.formerror}>{formError.passwordCurrentErr}</p>}
-                    <input type="password" name="" id="newpassword" value={Updateform.password} placeholder="New Password" onChange={(e) => { setUpdateform(prev => { return { ...prev, password: e.target.value } }) }} />
+                    <input type="password" name="" id="newpassword" value={Updateform.password} placeholder="New Password" autoComplete="off" onChange={(e) => { setUpdateform(prev => { return { ...prev, password: e.target.value } }) }} />
                     {formError.passwordErr && <p className={styles.formerror}>{formError.passwordErr}</p>}
                 </form>
                 <LockIcon sx={{ color: '#fa2d48', height: '1.2em', width: '1.2em' }} />

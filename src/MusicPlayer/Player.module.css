@@ -62,7 +62,7 @@
     width: 100%;
     cursor: pointer;
     z-index: 3;
-    opacity: 0.1;
+    opacity: 0;
 }
 
 .progress {

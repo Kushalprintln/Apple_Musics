@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 export default function SongCard({ data }) {
     const Authentication = useContext(Authcontext);
     const Token = Authentication.User[0] && Authentication.User[0].JWT;
-
+    const audio = new Audio(data.audio_url);
     //REQUIRMENTS;
     const LikeSongURL = 'https://academics.newtonschool.co/api/v1/music/favorites/like';
     const header = { 'projectId': 'f104bi07c490', 'Authorization': `Bearer ${Token}`, 'Content-Type': 'application/json' };
@@ -67,16 +67,21 @@ export default function SongCard({ data }) {
         }
     }
 
+    function HandleMusic(){
+        Authentication.SelectedSong[1](data);
+        Authentication.audref.current = audio;
+    }
+
     return (
         <div className={styles.card}>
             <div className={styles.details}>
                 <h2 className={styles.title}>{data.title}</h2>
                 <p className={styles.discription}>Apple Music</p>
             </div>
-            <img src={data.thumbnail} alt="" />
-            <span className={styles.playbtn}>
+            <img src={data.thumbnail} alt="" onClick={HandleMusic} />
+            {/* <span className={styles.playbtn}>
                 <PlayArrowIcon sx={{ color: '#fa586a', width: '0.9em', height: '0.9em' }} />
-            </span>
+            </span> */}
             <span className={styles.likebtn} onClick={manageLike}>
                 {Authentication.LikedSongs[0].includes(data._id) ?
                     <FavoriteIcon sx={{ color: '#fa586a', width: '0.9em', height: '0.9em' }} /> :

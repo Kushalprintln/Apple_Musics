@@ -17,7 +17,6 @@ export default function UserBtn() {
     function singOut(){
         Authentication.User[1](null);
         Authentication.LikedSongs[1]([]);
-        console.log(Authentication);
         localStorage.removeItem('user');
         setDropDown(false);
         toast.info('SignOut Successfully', {

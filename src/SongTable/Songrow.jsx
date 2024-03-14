@@ -1,20 +1,20 @@
 // IMPORT REACT AND STYLES;
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import styles from './Songrow.module.css';
 // IMPORTING ICONS;
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 // IMPORTING AUTHENTICATION;
 import Authcontext from "../Context/AuthContext";
-import AudioContext from '../Context/AudioContext'
 import { toast } from 'react-toastify';
 
 export default function Songrow({ data, bg, artist, album }) {
     const Authentication = useContext(Authcontext);
     const Token = Authentication.User[0] && Authentication.User[0].JWT;
     const audio = new Audio(data.audio_url);
-    audio.addEventListener('timeupdate',()=>{
-        
+    const [duration,setDuration] = useState(0);
+    audio.addEventListener('loadedmetadata',()=>{
+        setDuration(audio.duration);
     })
     
     //REQUIRMENTS;
@@ -74,11 +74,8 @@ export default function Songrow({ data, bg, artist, album }) {
 
     function HandleMusic(){
         Authentication.SelectedSong[1](data);
-        // console.log(data.audio_url);
         Authentication.audref.current = audio;
     }
-
-
 
     return (
         <div style={{ backgroundColor: bg ? '#232323' : null }} className={styles.songrow}>
@@ -93,7 +90,7 @@ export default function Songrow({ data, bg, artist, album }) {
                 <span className={styles.album}>
                     {album ? `${album}` : `Album Name`}
                 </span>
-                <span className={styles.time}>Time</span>
+                <span className={styles.time}>{duration.toFixed(2)}</span>
             </div>
             <span className={styles.like} onClick={manageLike}>
                 {Authentication.LikedSongs[0].includes(data._id) ?

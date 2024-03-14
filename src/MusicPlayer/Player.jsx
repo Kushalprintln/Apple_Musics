@@ -13,7 +13,6 @@ export default function Player({ song }) {
 
     function handleSeek (e) {
         const seekTime = (e.target.value / 100) * duration;
-        console.log(seekTime);
         setCurrentTimeAudio(seekTime);
       };
 
