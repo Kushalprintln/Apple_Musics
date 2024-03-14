@@ -1,5 +1,5 @@
 // IMPORT REACT AND STYLES;
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from './SignUp.module.css';
 // IMPORT LOGOS FROM MATERIUI
 import logo from '../../images/apple logo.png'
@@ -54,6 +54,10 @@ export default function SignUp({ close }) {
         // Return the filtered object
         return filteredObject;
     }
+    useEffect(()=>{
+        clearForm();
+        clearErrors();
+    },[selectedOption])
 
     // LOGIN
     async function login() {
@@ -119,7 +123,7 @@ export default function SignUp({ close }) {
             setError((prev) => { return { ...prev, passwordError: 'Please enter valid password' } });
             return false;
         } else if (formData.password.length < 4 || formData.password.length > 18) {
-            setError((prev) => { return { ...prev, passwordError: 'Email should between 4 to 18 characters' } });
+            setError((prev) => { return { ...prev, passwordError: 'Password should between 4 to 18 characters' } });
             return false;
         }
         setError((prev) => { return { ...prev, passwordError: '' } });
@@ -207,6 +211,13 @@ export default function SignUp({ close }) {
             email: '',
             password: '',
             appType: 'music'
+        })
+    }
+    function clearErrors() {
+        setError({
+            nameError: '',
+            emailError: '',
+            passwordError: ''
         })
     }
 
